@@ -1,0 +1,37 @@
+
+# Dependencias y compilacion
+node_modules/
+build/
+dist/
+target/
+platforms/
+plugins/
+.gradle/
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.class
+*.apk
+*.aab
+*.exe
+*.o
+# Configuracion local y credenciales
+.idea/
+.vscode/
+nbproject/private/
+local.properties
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.jks
+*.keystore
+# Datos locales
+*.db
+*.sqlite
+*.sqlite3
+*.log
+.DS_Store
+Thumbs.db
