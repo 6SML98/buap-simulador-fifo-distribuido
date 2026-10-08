@@ -1,39 +1,26 @@
 # Simulador FIFO distribuido
 
-Proyecto final cliente-servidor Java: simulación FIFO de procesos, monitor y gráfica de Gantt.
+Simulador de planificación FIFO con servidor XML-RPC, clientes de consola y Swing, monitor y gráfica de Gantt.
 
-Proyecto académico de BUAP. Proyecto final seleccionado.
+## Requisitos
 
-## Organización
+JDK 17 y cinco JAR en lib/: xmlrpc-server/client/common 3.1.3, ws-commons-util 1.0.2 y commons-logging 1.2.
 
-- `servidor/`: servidor FIFO, monitor y proyecto NetBeans.
-- `cliente/`: cliente de consola y Swing con proyecto NetBeans.
+## Ejecutar
 
-Abre cada carpeta como un proyecto independiente. Inicia primero el servidor y ajusta la dirección de conexión del cliente para tu entorno.
+Abre servidor/ y cliente/ como proyectos NetBeans separados. Sus referencias apuntan a la carpeta lib/ compartida.
 
-## Documentación y requisitos
+Para compilar desde PowerShell:
 
+```powershell
+New-Item -ItemType Directory build/classes -Force | Out-Null
+$fuentes = (Get-ChildItem servidor/src,cliente/src -Recurse -Filter *.java).FullName
+javac -encoding UTF-8 -cp "lib/*" -d build/classes $fuentes
+java -cp "build/classes;lib/*" rpcfifo.fifoServer 8080
+```
 
+En otra terminal: `java -cp "build/classes;lib/*" DynamicClient http://localhost:8080/`. También existe rpcfifo.ClienteSwing.
 
-## Tecnologías y archivos
+## Verificación del 8 de octubre de 2026
 
-Extensiones de código: .java, .xml.
-
-## Ejecución
-
-Abrir `servidor/` y `cliente/` por separado con Apache NetBeans. Revisar las dependencias en el archivo `nbproject/project.properties` de cada proyecto y ajustar las rutas locales de bibliotecas si corresponde.
-
-Clases con método `main`:
-
-- `rpcfifo.fifoServer`
-- `rpcfifo.MonitorPuro`
-
-Las clases RPC requieren Apache XML-RPC 3.1.3 y sus dependencias. Las bibliotecas originales se conservan en la carpeta de la materia; configurar su instalación en el IDE antes de compilar.
-
-## Contenido publicado
-
-Se conserva el código y los recursos referenciados. Se excluyen dependencias instaladas, resultados de compilación, configuraciones personales, documentos ajenos al programa y datos locales.
-
-## Estado
-
-Archivo académico original. Puede contener operaciones pendientes o dependencias antiguas. No se ha verificado la ejecución de todos los programas.
+Servidor y clientes compilados; llamadas RPC de reinicio, login, envío, finalización y resumen comprobadas. El cliente de consola se ejecutó. Se corrigieron las rutas de las bibliotecas y el destino Java 11, incompatible con la sintaxis del cliente. Las ventanas Swing no se recorrieron visualmente.

@@ -5,7 +5,7 @@ import org.apache.xmlrpc.server.PropertyHandlerMapping;
 import org.apache.xmlrpc.server.XmlRpcServer;
 import org.apache.xmlrpc.server.XmlRpcServerConfigImpl;
 
-// ¡Asegúrate de importar estas 3 clases!
+// Reloj de simulación y monitor periódico.
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -32,11 +32,11 @@ public class fifoServer {
         final fifo fifoInstance = new fifo();
 
         // 2.Inicia el monitor
-        // Este es un SEGUNDO hilo que se ejecuta cada segundo.
+        // El monitor se actualiza cada cinco segundos.
         ScheduledExecutorService monitor = Executors.newSingleThreadScheduledExecutor();
         monitor.scheduleAtFixedRate(() -> {
             try {
-                // Llama a los métodos que acabamos de crear:
+                // Obtiene el estado actual del servidor.
                 clearConsole();
                 String monitorData = fifoInstance.getMonitorServidor(); // Usa la instancia
                 System.out.println(monitorData); // Imprime el monitor en la consola
