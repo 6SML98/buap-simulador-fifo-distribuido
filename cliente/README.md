@@ -1,17 +1,4 @@
-# Simulador FIFO distribuido
-
-Proyecto final cliente-servidor Java: simulación FIFO de procesos, monitor y gráfica de Gantt.
-
-Proyecto académico de BUAP. Proyecto final seleccionado.
-
-## Organización
-
-- `servidor/`: servidor FIFO, monitor y proyecto NetBeans.
-- `cliente/`: cliente de consola y Swing con proyecto NetBeans.
-
-Abre cada carpeta como un proyecto independiente. Inicia primero el servidor y ajusta la dirección de conexión del cliente para tu entorno.
-
-## Documentación y requisitos
+# ProyectoClienteRCP
 
 Proyecto o conjunto de prácticas académicas de BUAP. Se publica como parte del archivo de trabajos de `6SML98`.
 
@@ -25,8 +12,8 @@ Abrir la carpeta con Apache NetBeans. Revisar las dependencias en `nbproject/pro
 
 Clases con método `main`:
 
-- `rpcfifo.fifoServer`
-- `rpcfifo.MonitorPuro`
+- `DynamicClient`
+- `rpcfifo.ClienteSwing`
 
 Las clases RPC requieren Apache XML-RPC 3.1.3 y sus dependencias. Las bibliotecas originales se conservan en la carpeta de la materia; configurar su instalación en el IDE antes de compilar.
 
